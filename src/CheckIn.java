@@ -1,6 +1,7 @@
 
-import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 public class CheckIn {
@@ -15,26 +16,31 @@ public class CheckIn {
         //First display for the user
        // do{
             Scanner keyboard = new Scanner(System.in);
-            System.out.println("Best Value Parking Garage ========================= ");
+            System.out.println("Best Value Parking Garage \n========================= ");
             System.out.println("1 – Check-In");
             System.out.println("2 – Close Garage");
             System.out.println("=>");
             inputCounter = keyboard.nextInt();
        // }while(inputCounter != 1 || inputCounter != 2);
 
+        //displays the vehicle id for check-in and adds a new ticket to the array list.
         if (inputCounter == 1){
             idCounter++;
-            System.out.println("Your vehicle ID is " + idCounter + ". Re-Enter the ID to confirm.");
-            Scanner newInfo = new Scanner(System.in);
-            int id = newInfo.nextInt();
-            ticket = new Ticket(id);
+            System.out.println("Best Value Parking Garage \n========================= ");
+            System.out.println("Your vehicle ID is " + idCounter);
+            ticket = new Ticket(idCounter);
             tickets.add(ticket);
 
-            System.out.println(tickets);
+            for(Ticket printTicket : tickets){
+                System.out.println("");
+                System.out.println("Receipt for vehicle ID " + printTicket.getidNumber());
+            }
 
 
         }else if(inputCounter == 2){
             System.out.println("second");
+           LocalTime time = LocalTime.now();
+           System.out.println(time.toString());
         }
 
 
