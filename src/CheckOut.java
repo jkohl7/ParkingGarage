@@ -1,11 +1,21 @@
+
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.IdentityHashMap;
 import java.util.Scanner;
 
 public class CheckOut {
     public static void main(String[] args) {
         int inputCounter = 0;
+        int lostTickets;
+        double minimumFee = 5.00;
+        double perHour = 1.00;
+        double maximumFee = 15.00;
+        double lostTicket = 25.00;
+        double finalFee;
+
+
+
+
 
         ArrayList<Ticket> tickets = new ArrayList<>();
         Ticket ticket;
