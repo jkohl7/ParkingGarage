@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class CheckOut {
     public static void main(String[] args) {
         int inputCounter = 0;
+        int idInput;
         int lostTickets;
         double minimumFee = 5.00;
         double perHour = 1.00;
@@ -13,12 +14,8 @@ public class CheckOut {
         double lostTicket = 25.00;
         double finalFee;
 
+        ArrayList<Ticket> tickets = FileInput.readFile("data");
 
-
-
-
-        ArrayList<Ticket> tickets = new ArrayList<>();
-        Ticket ticket;
 
     //    ticket = new Ticket(1, )
 
@@ -42,11 +39,15 @@ public class CheckOut {
 
 
         if (inputCounter == 1) {
-            for(Ticket printTicket : tickets){
-                System.out.println("");
-                System.out.println("Best Value Parking Garage \n========================= ");
-                System.out.println("Receipt for vehicle ID " + printTicket.getidNumber());
-                System.out.println("Vehicle checked in at " + printTicket.getStartTime());
+            System.out.println("What was your vehicle ID?: ");
+            Scanner input = new Scanner(System.in);
+            idInput = Integer.parseInt(input.nextLine());
+
+
+            for(Ticket t : tickets) {
+                if(idInput == t.getidNumber()){
+                 //   t.setEndTime();
+                }
             }
 
         } else if (inputCounter == 2) {

@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -5,17 +7,10 @@ import java.util.Scanner;
 
 public class CheckIn {
     public static void main(String[] args) {
-
-
         int inputCounter = 0;
         int idCounter = 0;
-        String time;
-        ArrayList<Ticket> tickets = new ArrayList<>();
-        Ticket ticket;
 
-
-
-
+        ArrayList<Ticket> tickets = FileInput.readFile("data");
 
         //First display for the user
         do{
@@ -29,7 +24,8 @@ public class CheckIn {
 
         //displays the vehicle id for check-in and adds a new ticket to the array list.
         if (inputCounter == 1){
-            idCounter++;
+            Ticket ticket;
+            idCounter = tickets.size()+1;
           //  LocalTime test = now.plusHours(5);
           //  long differenceInHours = java.time.Duration.between(now, test).toHours();
           //  System.out.println("There is a " + differenceInHours + " hour difference.");
@@ -41,12 +37,15 @@ public class CheckIn {
             tickets.add(ticket);
 
 
-            for(Ticket printTicket : tickets){
+
                 System.out.println("");
                 System.out.println("Best Value Parking Garage \n========================= ");
-                System.out.println("Vehicle submitted successfully. Your ID is " + printTicket.getidNumber());
-                System.out.println("Vehicle checked in at " + printTicket.getStartTime());
-            }
+                System.out.println("Vehicle submitted successfully. Your ID is " + ticket.getidNumber());
+                System.out.println("Vehicle checked in at " + ticket.getStartTime());
+
+
+            FileOutput.writeFile("data", tickets);
+
 
 
         }else if(inputCounter == 2){

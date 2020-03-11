@@ -1,19 +1,31 @@
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import java.io.*;
 import java.util.ArrayList;
 
 public class FileOutput implements Serializable {
-    public void writeFile(String fileName, ArrayList<Ticket> tickets) throws IOException {
-        FileOutputStream fos = new FileOutputStream(fileName);
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
+    public static void writeFile(String fileName, ArrayList<Ticket> tickets){
 
-        for(Ticket t : tickets){
-            oos.writeObject(t);
+
+        FileOutputStream fos;
+        ObjectOutputStream oos = null;
+
+        try {
+            fos = new FileOutputStream(fileName);
+            oos = new ObjectOutputStream(fos);
+        }catch (FileNotFoundException e ){
+            System.out.println("File does not exist");
+        }catch(IOException e){
+            System.out.println("IOExeption caught");
         }
-        oos.close();
-    }
+
+        try {
+
+                oos.writeObject(tickets);
+
+            oos.close();
+        }catch (IOException e){
+            System.out.println("c");
+        }
+}
 
 
 }

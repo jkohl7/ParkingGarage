@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.time.LocalTime;
 
-public class Ticket {
+public class Ticket  implements Serializable {
 
     private int idNumber;
     private LocalTime startTime;
