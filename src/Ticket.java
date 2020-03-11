@@ -3,12 +3,15 @@ import java.time.LocalTime;
 public class Ticket {
 
     private int idNumber;
-    private LocalTime time;
+    private LocalTime startTime;
+    private LocalTime endTime;
 
 
-    public Ticket(int idNumber, LocalTime time){
+
+    public Ticket(int idNumber, LocalTime startTime){
         this.idNumber = idNumber;
-        this.time = time;
+        this.startTime = startTime;
+        this.endTime = endTime;
     }
 
     public Ticket(int idNumber) {
@@ -25,11 +28,19 @@ public class Ticket {
         this.idNumber = idNumber;
     }
 
-    public LocalTime getTime() {
-        return time;
+    public LocalTime getStartTime() {
+        return startTime;
     }
 
-    public void setTime(LocalTime time) {
-        this.time = time;
+    public void setTime(LocalTime startTime) {
+        this.startTime = startTime;
+    }
+
+    public LocalTime getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(LocalTime endTime) {
+        this.endTime = endTime;
     }
 }

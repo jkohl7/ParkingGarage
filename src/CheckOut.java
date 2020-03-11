@@ -20,7 +20,7 @@ public class CheckOut {
 
 
 
-        //first display screen for the person parking
+        //first display screen for the person leaving
         do{
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Best Value Parking Garage \n========================= ");
@@ -36,7 +36,7 @@ public class CheckOut {
                 System.out.println("");
                 System.out.println("Best Value Parking Garage \n========================= ");
                 System.out.println("Receipt for vehicle ID " + printTicket.getidNumber());
-                System.out.println("Vehicle checked in at " + printTicket.getTime());
+                System.out.println("Vehicle checked in at " + printTicket.getStartTime());
             }
 
         } else if (inputCounter == 2) {
