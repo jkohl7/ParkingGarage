@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -26,9 +27,10 @@ public class CheckIn {
         if (inputCounter == 1){
             Ticket ticket;
             idCounter = tickets.size()+1;
-          //  LocalTime test = now.plusHours(5);
-          //  long differenceInHours = java.time.Duration.between(now, test).toHours();
-          //  System.out.println("There is a " + differenceInHours + " hour difference.");
+//            LocalTime now = LocalTime.now();
+//            LocalTime test = now.plusHours(5);
+//            long differenceInHours = java.time.Duration.between(now, test).toHours();
+//            System.out.println("There is a " + differenceInHours + " hour difference.");
 
 
            // System.out.println("Your check-in time is " + now );
@@ -41,7 +43,7 @@ public class CheckIn {
                 System.out.println("");
                 System.out.println("Best Value Parking Garage \n========================= ");
                 System.out.println("Vehicle submitted successfully. Your ID is " + ticket.getidNumber());
-                System.out.println("Vehicle checked in at " + ticket.getStartTime());
+                System.out.println("Vehicle checked in at " + ticket.getStartTime().format(DateTimeFormatter.ofPattern("hh:mm a")));
 
 
             FileOutput.writeFile("data", tickets);
