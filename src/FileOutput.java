@@ -12,7 +12,7 @@ public class FileOutput implements Serializable {
             fos = new FileOutputStream(fileName);
             oos = new ObjectOutputStream(fos);
         }catch (FileNotFoundException e ){
-            System.out.println("File does not exist");
+            System.out.println("File does not exist. (The program must run once to create the needed File.)");
         }catch(IOException e){
             System.out.println("IOExeption caught");
         }

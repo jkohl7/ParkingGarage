@@ -16,17 +16,6 @@ public class CheckOut {
 
         ArrayList<Ticket> tickets = FileInput.readFile("data");
 
-
-    //    ticket = new Ticket(1, )
-
-      //  LocalTime now = LocalTime.now();
-
-      //   LocalTime test = now.plusHours(5);
-     //    long differenceInHours = java.time.Duration.between(now, test).toHours();
-       //  System.out.println("There is a " + differenceInHours + " hour difference.");
-
-
-
         //first display screen for the person leaving
         do{
         Scanner keyboard = new Scanner(System.in);
@@ -37,7 +26,7 @@ public class CheckOut {
         inputCounter = keyboard.nextInt();
         }while(inputCounter != 1 && inputCounter != 2);
 
-
+        //once the user enters the number 1
         if (inputCounter == 1) {
             System.out.println("What was your vehicle ID?: ");
             Scanner input = new Scanner(System.in);
@@ -71,7 +60,7 @@ public class CheckOut {
 
             }
 
-            //lost ticket
+            //once the user enters the number 2
         } else if (inputCounter == 2) {
             System.out.println("What was your vehicle ID?: ");
             Scanner input = new Scanner(System.in);

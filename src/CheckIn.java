@@ -1,15 +1,19 @@
-import java.io.File;
-import java.io.IOException;
+import java.text.ParseException;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
 public class CheckIn {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         int inputCounter = 0;
         int idCounter = 0;
+        int loopCounter = 0;
+
+        double minimumFee = 5.00;
+        double perHour = 1.00;
+        double maximumFee = 15.00;
+        double lostTicket = 25.00;
 
         ArrayList<Ticket> tickets = FileInput.readFile("data");
 
@@ -27,17 +31,11 @@ public class CheckIn {
         if (inputCounter == 1){
             Ticket ticket;
             idCounter = tickets.size()+1;
-//            LocalTime now = LocalTime.now();
-//            LocalTime test = now.plusHours(5);
-//            long differenceInHours = java.time.Duration.between(now, test).toHours();
-//            System.out.println("There is a " + differenceInHours + " hour difference.");
 
 
-           // System.out.println("Your check-in time is " + now );
             LocalTime checkIn = LocalTime.now();
             ticket = new Ticket(idCounter, checkIn);
             tickets.add(ticket);
-
 
 
                 System.out.println("");
@@ -50,11 +48,31 @@ public class CheckIn {
 
 
 
+            //*******************************************READ THIS****************************************************//
+            //I was not able to get my Close Garage to work. I was having some trouble with getting my LocalTime's to //
+            //compare and I did not have enough time to get this portion to work correctly. The data entered here is  //
+            //just some place holder data. I would have used the similar calculations that I used from the Check-Out  //
+            //machine.
+            //*******************************************READ THIS***************************************************//
+
         }else if(inputCounter == 2){
-            System.out.println("second");
+            System.out.println("Best Value Parking Garage \n========================= ");
+            System.out.println("Activity to Date");
+            System.out.println("$40 was collected from 4 Check-ins");
+            System.out.println("$50 was collected from 2 Lost Tickets");
+            System.out.println("$90 was collected overall");
 
+            for(Ticket t : tickets) {
+                if(loopCounter < t.getidNumber()){
+                    loopCounter++;
+//                    long differenceInHours = t.getEndTime() - t.getStartTime();
+//
+//                   System.out.println("Cost of parking will be: $" + (minimumFee + perHour * differenceInHours));
+
+             }
+
+            }
         }
-
 
     }
 }
